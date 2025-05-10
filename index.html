@@ -1,301 +1,285 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <title>海風的YOUYUBE頻道</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>海風的YOUTUBE頻道</title>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet" />
 
-        body {
-            font-family: 'Patrick Hand', 'Noto Sans TC', cursive;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #e0f7fa, #ffffff);
-            color: #333;
-            transition: background 0.3s, color 0.3s;
-        }
+  <style>
+    :root {
+      --primary-color: #00bcd4;
+      --accent-color: #ff4081;
+      --dark-bg: #1c1c1c;
+      --light-bg: #ffffff;
+      --dark-text: #eeeeee;
+      --light-text: #333333;
+    }
 
-        body.dark {
-            background: #1e1e1e;
-            color: #f0f0f0;
-        }
+    body {
+      font-family: 'Patrick Hand', 'Noto Sans TC', cursive;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+      color: var(--light-text);
+      scroll-behavior: smooth;
+      transition: background 0.5s, color 0.5s;
+    }
 
-        .container {
-            max-width: 900px;
-            margin: 80px auto 50px auto;
-            padding: 30px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1.2s ease;
-            transition: background 0.3s;
-        }
+    body.dark-mode {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
 
-        body.dark .container {
-            background: #2a2a2a;
-        }
+    .container {
+      max-width: 900px;
+      margin: 80px auto 50px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: background 0.5s;
+    }
 
-        h1, h2 {
-            color: #0077cc;
-        }
+    body.dark-mode .container {
+      background: #2c2c2c;
+    }
 
-        a {
-            color: #00bfa5;
-            text-decoration: none;
-        }
+    h1, h2 {
+      color: var(--primary-color);
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
+    a {
+      color: #009688;
+      text-decoration: none;
+    }
 
-        hr {
-            border: 1px solid #ccc;
-            margin: 10px 0 20px;
-        }
+    a:hover {
+      text-decoration: underline;
+    }
 
-        ol, ul {
-            padding-left: 20px;
-        }
+    hr {
+      border: 1px solid #ccc;
+      margin: 10px 0 20px;
+    }
 
-        iframe {
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            width: 100%;
-            height: 400px;
-        }
+    ol, ul {
+      padding-left: 20px;
+    }
 
-        .avatar {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-            z-index: 999;
-            transition: transform 0.3s ease;
-        }
+    iframe {
+      width: 100%;
+      height: 400px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
 
-        .avatar:hover {
-            transform: scale(1.1);
-        }
+    iframe:hover {
+      transform: scale(1.01);
+    }
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 50px;
-            padding: 20px;
-            background: #f0f0f0;
-            transition: background 0.3s;
-        }
+    .avatar {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 999;
+      transition: transform 0.3s ease;
+    }
 
-        body.dark .social-icons {
-            background: #333;
-        }
+    .avatar:hover {
+      transform: scale(1.1);
+    }
 
-        .social-icons a {
-            color: #333;
-            font-size: 36px;
-            transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-        }
+    .social-icons {
+      background: #eee;
+      padding: 20px 0;
+      margin-top: 50px;
+      text-align: center;
+    }
 
-        body.dark .social-icons a {
-            color: #ddd;
-        }
+    .social-icons a {
+      color: #333;
+      font-size: 36px;
+      margin: 0 20px;
+      transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        .social-icons a:hover {
-            transform: scale(1.3) rotate(-5deg);
-            color: #00bfa5;
-            box-shadow: 0 0 10px #00bfa5;
-        }
+    .social-icons a:hover {
+      transform: scale(1.3) rotate(-5deg);
+      color: var(--accent-color);
+      box-shadow: 0 0 10px var(--accent-color);
+    }
 
-        .game-link {
-            display: inline-block;
-            padding: 6px 10px;
-            margin: 5px 0;
-            border-radius: 8px;
-            background-color: #e0f7fa;
-            transition: box-shadow 0.3s ease, transform 0.2s ease;
-        }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease forwards;
+    }
 
-        .game-link:hover {
-            box-shadow: 0 0 12px #00bfa5;
-            transform: scale(1.05);
-            background-color: #b2fef7;
-        }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #00bfa5;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 999;
-            transition: background 0.3s, transform 0.3s;
-        }
+    .game-button a {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-bottom: 10px;
+      border-radius: 12px;
+      background: #00bcd4;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 188, 212, 0.3);
+      transition: all 0.2s ease;
+      text-align: center;
+    }
 
-        .back-to-top:hover {
-            background-color: #008e76;
-            transform: scale(1.1);
-        }
+    .game-button a:hover {
+      background: #26c6da;
+      box-shadow: 0 0 20px #00e5ff;
+      transform: scale(1.05);
+    }
 
-        .theme-toggle {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: #ffeb3b;
-            color: #333;
-            padding: 8px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            z-index: 999;
-            transition: background 0.3s;
-        }
+    #toTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #00bcd4;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 999;
+    }
 
-        body.dark .theme-toggle {
-            background: #424242;
-            color: #fff;
-        }
+    #toTop:hover {
+      background: #26c6da;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    .toggle-dark {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      font-size: 20px;
+      background: #ffc107;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
 
-        @media (max-width: 768px) {
-            .container {
-                margin: 40px 10px;
-                padding: 20px;
-            }
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      padding: 10px;
+      background: #eee;
+      color: #666;
+    }
 
-            .avatar {
-                width: 45px;
-                height: 45px;
-                top: 10px;
-                right: 10px;
-            }
+    @media (max-width: 768px) {
+      .container {
+        margin: 40px 10px;
+        padding: 20px;
+      }
 
-            iframe {
-                height: 250px;
-            }
+      .avatar {
+        width: 45px;
+        height: 45px;
+        top: 10px;
+        right: 10px;
+      }
 
-            .social-icons {
-                gap: 25px;
-                flex-direction: column;
-            }
+      iframe {
+        height: 250px;
+      }
 
-            .social-icons a {
-                font-size: 28px;
-            }
-
-            .theme-toggle, .back-to-top {
-                bottom: 20px;
-                font-size: 16px;
-                padding: 8px;
-            }
-        }
-    </style>
+      .social-icons a {
+        font-size: 28px;
+        margin: 0 15px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- 頭像 -->
-    <img src="https://yt3.googleusercontent.com/ppAmzxweoucghDPn_AQtwlkoul5r2iH8aH7Qmc--8u7u6qXsnkd7y7E8QCIo9P7C78RKDxpgxw=s160-c-k-c0x00ffffff-no-rj" alt="海風頭像" class="avatar">
+  <button class="toggle-dark" onclick="toggleDarkMode()" title="切換夜間模式">🌙</button>
+  <div id="toTop" onclick="scrollToTop()" title="回到頂部">⬆</div>
+  <img src="https://yt3.googleusercontent.com/ppAmzxweoucghDPn_AQtwlkoul5r2iH8aH7Qmc--8u7u6qXsnkd7y7E8QCIo9P7C78RKDxpgxw=s160-c-k-c0x00ffffff-no-rj" alt="海風頭像" class="avatar" />
 
-    <!-- 夜間模式按鈕 -->
-    <div class="theme-toggle" onclick="toggleTheme()">🌙/☀️</div>
+  <div class="container fade-in">
+    <h1>海風的YOUTUBE頻道</h1>
 
-    <!-- 返回頂部按鈕 -->
-    <div class="back-to-top" onclick="scrollToTop()" title="回到頂部">
-        ⬆️
+    <h2>關於海風</h2>
+    <hr>
+    <p>
+      大家好，我是海風，我的個性是活潑開朗。<br>
+      我喜歡一些遊戲，例如 roblox、minecraft、蛋仔派對(很久沒玩了)...<br>
+      如果你喜歡我的影片，記得去
+      <a href="https://www.youtube.com/@hifen_Game" target="_blank">我的 YouTube 主頁</a> 訂閱一下😊！<br>
+      也可以幫我影片按個讚 UwU～我會繼續做值得你看的影片喔！
+    </p>
+
+    <h2>我最喜歡的 Roblox 遊戲</h2>
+    <hr>
+    <div class="game-button">
+      <a href="https://www.roblox.com/games/17625359962/GAMEMODES-RIVALS" target="_blank">競爭者</a><br>
+      <a href="https://www.roblox.com/games/606849621/Jailbreak" target="_blank">越獄</a><br>
+      <a href="https://www.roblox.com/games/6516141723/FLOOR-2-DOORS" target="_blank">DOORS 👁️</a><br>
+      <a href="https://www.roblox.com/games/3260590327/STICKERS-Tower-Defense-Simulator" target="_blank">🥊 Tower Defense Simulator</a>
     </div>
 
-    <div class="container">
-        <h1>海風的YOUYUBE頻道</h1>
+    <h2>合作過的 YouTuber</h2>
+    <hr>
+    <ul>
+      <li><a href="https://www.youtube.com/@%E9%81%8A%E6%88%B2BloxFruit" target="_blank">小恩</a></li>
+      <li><a href="https://www.youtube.com/@R-kh3cv" target="_blank">你不知道s️</a></li>
+      <li><a href="https://www.youtube.com/@%E8%BF%B7%E5%9B%A0%E7%8E%A9%E9%81%8A%E6%88%B2" target="_blank">培之起司</a></li>
+    </ul>
 
-        <h2>關於海風</h2>
-        <hr>
-        <p>
-            大家好，我是海風，我的個性是活潑開朗。
-            <br>
-            我喜歡一些遊戲，例如roblox、minecraft、蛋仔派對(很久沒玩了)等等......
-            <br>
-            如果你喜歡我的影片，不妨去
-            <a href="https://www.youtube.com/@hifen_Game" target="_blank">我的youtube主頁</a>按下訂閱ㄛ😊!
-            <br>
-            也可以把我每個影片按讚(看起來很累)ㄛUwU
-            <br>
-            我會繼續做出U值得影片的喔!
-        </p>
+    <h2>🎬 海風的播放清單</h2>
+    <hr>
+    <p>這是我最新的 YouTube 播放清單，記得訂閱＋按讚 ❤️</p>
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLSaprQJEbGatfLmMv2aX6l-EKxpAMMM6i" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
 
-        <h2>我最喜歡的roblox遊戲</h2>
-        <hr>
-        <ol>
-            <li><a class="game-link" href="https://www.roblox.com/games/17625359962/GAMEMODES-RIVALS" target="_blank">競爭者</a></li>
-            <li><a class="game-link" href="https://www.roblox.com/games/606849621/Jailbreak" target="_blank">《越獄》</a></li>
-            <li><a class="game-link" href="https://www.roblox.com/games/6516141723/FLOOR-2-DOORS" target="_blank">DOORS 👁️</a></li>
-            <li><a class="game-link" href="https://www.roblox.com/games/3260590327/STICKERS-Tower-Defense-Simulator" target="_blank">🥊[PVP TEST] Tower Defense Simulator 🥊 👁️</a></li>
-        </ol>
+  <div class="social-icons">
+    <a href="https://www.youtube.com/@hifen_Game" target="_blank" title="訂閱我的 YouTube！"><i class="fab fa-youtube"></i></a>
+    <a href="https://discord.gg/XEQ64838SE" target="_blank" title="加入我的 Discord！"><i class="fab fa-discord"></i></a>
+  </div>
 
-        <h2>合作過哦youtuber</h2>
-        <hr>
-        <ul>
-            <li><a href="https://www.youtube.com/@%E9%81%8A%E6%88%B2BloxFruit" target="_blank">小恩</a></li>
-            <li><a href="https://www.youtube.com/@R-kh3cv" target="_blank">你不知道s️</a></li>
-            <li><a href="https://www.youtube.com/@%E8%BF%B7%E5%9B%A0%E7%8E%A9%E9%81%8A%E6%88%B2" target="_blank">培之起司</a></li>
-        </ul>
+  <div class="footer">chatGPT | hifon</div>
 
-        <h2>🎬 海風的播放清單</h2>
-        <hr>
-        <p>這是我的YouTube播放清單～可以在這裡直接觀看我所有精選影片喔！記得訂閱+按讚 ❤️</p>
-        <iframe src="https://www.youtube.com/playlist?list=PLSaprQJEbGatfLmMv2aX6l-EKxpAMMM6i"
-                title="YouTube playlist player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-        </iframe>
-    </div>
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-    <!-- 社群圖示 -->
-    <div class="social-icons">
-        <a href="https://www.youtube.com/@hifen_Game" target="_blank" title="訂閱我的 YouTube！">
-            <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://discord.gg/XEQ64838SE" target="_blank" title="加入我的 Discord！">
-            <i class="fab fa-discord"></i>
-        </a>
-    </div>
+    window.addEventListener('scroll', () => {
+      document.getElementById('toTop').style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
 
-    <!-- 版權標記 -->
-    <div style="text-align: center; color: #888; font-size: 14px; margin-bottom: 20px;">
-        chatGPT | hifon
-    </div>
-
-    <script>
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function toggleTheme() {
-            document.body.classList.toggle('dark');
-        }
-    </script>
-
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
 </body>
 </html>
